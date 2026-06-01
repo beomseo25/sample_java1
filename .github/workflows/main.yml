@@ -19,16 +19,15 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: 'gradle' # 🌟 핵심: 라이브러리를 캐싱해서 빌드 속도를 비약적으로 높여줍니다.
+        cache: 'gradle'
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
     - name: Test and Build
-      # clean을 통해 찌꺼기를 날리고, build 명령어로 테스트와 포장을 한 번에 끝냅니다.
       run: ./gradlew clean build
 
-    - name: Upload artifact (빌드 결과물 저장)
+    - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: sample-java1-build
