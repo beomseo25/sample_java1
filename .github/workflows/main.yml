@@ -1,5 +1,6 @@
 name: Sample Java 1 CI
 
+
 on:
   push:
     branches: [ "main", "master" ]
