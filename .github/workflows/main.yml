@@ -49,3 +49,4 @@ jobs:
         context: .
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/sample-java1:latest
+
