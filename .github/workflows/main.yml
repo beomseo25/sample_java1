@@ -3,7 +3,6 @@ name: Sample Java 1 CI & Docker Push (Performance Metrics Layer)
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
-
 on:
   push:
     branches: [ "main", "master" ]
@@ -87,4 +86,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/sample-java1:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/git_action_java
