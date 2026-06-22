@@ -5,21 +5,21 @@ env:
     DOCKER_PASSWORD: "/docker/password"
 
 phases:
+  install:
+    runtime-version:
+      java: corretto17
+      
   pre_build:
     commands:
       - chmod +x ./gradlew
       - ./gradlew compileJava
       - docker login -u beomseo25 -p $DOCKER_PASSWORD
+  
   build:
     commands:
       - ./gradlew test
+  
   post_build:
     commands:
       - docker build -t beomseo25/sample_java1:latest .
       - docker push beomseo25/sample_java1:latest
-artifacts:
-  files:
-    - appspec.yml   
-    - version.txt          
-    - scripts/** 
-  discard-paths: yes  
