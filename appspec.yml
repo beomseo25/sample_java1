@@ -1,0 +1,23 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /home/ubuntu/app
+
+permissions:
+  - object: /home/ubuntu/app/
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+
+hooks:
+  ApplicationStop:
+    - location: stop.sh 
+      timeout: 60
+      runas: root
+
+  ApplicationStart:
+    - location: start.sh
+      timeout: 120
+      runas: root
