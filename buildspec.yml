@@ -16,6 +16,7 @@ phases:
   build:
     commands:
       - ./gradlew test
+      - ./gradlew build -x test
   post_build:
     commands:
       - docker build -t beomseo25/sample_java1:latest .
